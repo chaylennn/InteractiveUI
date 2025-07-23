@@ -17,6 +17,8 @@ struct ContentView: View {
     @State private var textAge = "How old are you?"
     
     @State private var textSchool = "What school do you go to?"
+    
+    @State private var presentAlert = false
     var body: some View {
         VStack {
 
@@ -49,13 +51,17 @@ struct ContentView: View {
                 textName = "Welcome, \(name)"
                 textAge = "You are \(age) years old"
                 textSchool = "You go to \(school)"
+                presentAlert = true
                 
             }
             .font(.title2)
             .buttonStyle(.borderedProminent)
             .tint(.purple)
+            
+            
         }
         .padding()
+        .alert("You have hit the submit button", isPresented: $presentAlert, actions: {})
 
     }
 }
